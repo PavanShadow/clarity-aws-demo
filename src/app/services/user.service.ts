@@ -20,6 +20,7 @@ export class UserService {
   }
 
   public async updateUser(user: User): Promise<any> {
+    // console.log(user);
     return this.http
       .put<any>(environment.baseUrl + `user/${user.userId}`, user)
       .toPromise();

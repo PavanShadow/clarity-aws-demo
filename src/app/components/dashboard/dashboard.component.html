@@ -32,11 +32,7 @@
             </select>
           </clr-dg-cell>
           <clr-dg-cell
-            ><button
-              type="button"
-              class="btn btn-sm"
-              (click)="save()"
-            >
+            ><button type="button" class="btn btn-sm" (click)="save()">
               Save
             </button></clr-dg-cell
           >
@@ -49,8 +45,16 @@
           <clr-dg-cell
             ><button type="button" class="btn btn-sm" (click)="editUser = user">
               Edit
-            </button></clr-dg-cell
-          >
+            </button>
+            <button
+              type="button"
+              class="btn btn-icon btn-danger  btn-sm"
+              aria-label="error"
+              (click)="delete()"
+            >
+              <clr-icon shape="times"></clr-icon>
+            </button>
+          </clr-dg-cell>
         </ng-container>
       </clr-dg-row>
 

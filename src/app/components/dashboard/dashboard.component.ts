@@ -14,7 +14,6 @@ export class DashboardComponent implements OnInit {
   userCount: number;
   editUser: User;
   departments: any;
-  
 
   constructor(
     public userService: UserService,
@@ -35,7 +34,10 @@ export class DashboardComponent implements OnInit {
 
   save() {
     this.userService.updateUser(this.editUser).then((res) => {
-      console.log(res);
+      // console.log(res);
     });
+  }
+  delete() {
+    console.log('jkbh');
   }
 }
