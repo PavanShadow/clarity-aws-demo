@@ -24,13 +24,19 @@
               [(ngModel)]="editUser.department"
               name="department"
             >
-              <option *ngFor="let dep of departments" value="{{ dep.depName }}">{{
-                dep.depName
-              }}</option>
+              <option
+                *ngFor="let dep of departments"
+                value="{{ dep.depName }}"
+                >{{ dep.depName }}</option
+              >
             </select>
           </clr-dg-cell>
           <clr-dg-cell
-            ><button type="button" class="btn btn-sm" (click)="save(user.userId, user)">
+            ><button
+              type="button"
+              class="btn btn-sm"
+              (click)="save()"
+            >
               Save
             </button></clr-dg-cell
           >

@@ -31,8 +31,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  save(id: string, value: User) {
-    this.userService.updateUser(id, value).then((res) => {
+  save() {
+    this.userService.updateUser(this.editUser).then((res) => {
       console.log(res);
     });
   }

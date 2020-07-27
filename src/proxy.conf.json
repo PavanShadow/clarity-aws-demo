@@ -2,6 +2,7 @@
   "/dev/*": {
     "target": "https://xrz69h1lt6.execute-api.us-east-2.amazonaws.com",
     "secure": false,
-    "logLevel": "debug"
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

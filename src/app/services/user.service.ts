@@ -19,9 +19,9 @@ export class UserService {
     return this.http.post<any>(environment.baseUrl + 'user', user).toPromise();
   }
 
-  public async updateUser(userId: string, user: User): Promise<any> {
+  public async updateUser(user: User): Promise<any> {
     return this.http
-      .put<any>(environment.baseUrl + `user/${userId}`, user)
+      .put<any>(environment.baseUrl + `user/${user.userId}`, user)
       .toPromise();
   }
 }
