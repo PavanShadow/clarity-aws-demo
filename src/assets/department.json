@@ -1,0 +1,17 @@
+[
+  {
+    "id": "D001",
+    "name": "IT",
+    "noOfEmps": 3
+  },
+  {
+    "id": "D002",
+    "name": "FIN",
+    "noOfEmps": 3
+  },
+  {
+    "id": "D003",
+    "name": "SE",
+    "noOfEmps": 5
+  }
+]

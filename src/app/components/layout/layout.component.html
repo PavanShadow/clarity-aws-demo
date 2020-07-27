@@ -1,0 +1,41 @@
+<div class="main-container">
+    <header class=" header header-6">
+        <div class="branding">
+            <a href="javascript://" class="nav-link">
+                <clr-icon shape="vm-bug"></clr-icon>
+                <span class="title">Project Clarity</span>
+            </a>
+        </div>
+        <div class="header-actions">
+            <a routerLink="/auth/login" class="nav-link nav-icon-text">
+                <clr-icon shape="user"></clr-icon>
+                <span class="nav-text">Login</span>
+            </a>
+        </div>
+    </header>
+    <div class="content-container">
+        <nav class="sidenav">
+            <section class="sidenav-content">
+                <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    Dashboard
+                </a>
+                <a routerLink="/create" class="nav-link" routerLinkActive="active">
+                    Create
+                </a>
+                <section class="nav-group collapsible">
+                    <input id="tabexample1" type="checkbox">
+                    <label for="tabexample1">Collapsible Nav Element</label>
+                    <ul class="nav-list">
+                        <li><a class="nav-link">Link 1</a></li>
+                        <li><a class="nav-link">Link 2</a></li>
+                    </ul>
+                </section>
+                
+            </section>
+        </nav>
+        <div class="content-area">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

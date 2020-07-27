@@ -1,0 +1,61 @@
+<div class="login-wrapper">
+  <form class="login" [formGroup]="signUpForm" autocomplete="off" clrForm>
+    <section class="title">
+      <h3 class="welcome">Welcome to SLIIT</h3>
+
+      <h5 class="hint">
+        Create your account here
+      </h5>
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <label class="clr-sr-only">Full Name</label>
+        <input
+          type="text"
+          formControlName="fullname"
+          clrInput
+          placeholder="Full Name"
+        />
+      </clr-input-container>
+      <clr-input-container>
+        <label class="clr-sr-only">Username</label>
+        <input
+          type="text"
+          formControlName="username"
+          clrInput
+          placeholder="Username"
+        />
+      </clr-input-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          clrPassword
+          placeholder="Password"
+        />
+      </clr-password-container>
+      <clr-select-container>
+        <label class="clr-col-12 clr-col-md-4">Select role</label>
+
+        <select
+          clrSelect
+          formControlName="role"
+          class="clr-col-12 clr-col-md-6"
+        >
+          <option value="admin">Admin</option>
+          <option value="admin">User</option>
+        </select>
+
+        <clr-control-error>Should not be empty!</clr-control-error>
+      </clr-select-container>
+      <!-- <div class="error active" *ngIf="!signUpForm.valid">
+        Invalid user name or password
+      </div> -->
+      <button type="submit" class="btn btn-primary" (click)="signUp()">
+        Create account
+      </button>
+      <a routerLink="/auth/login" class="signup">Already an user!</a>
+    </div>
+  </form>
+</div>

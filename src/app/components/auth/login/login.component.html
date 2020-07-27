@@ -1,0 +1,42 @@
+<div class="login-wrapper">
+  <form class="login" [formGroup]="loginForm" autocomplete="off" clrForm>
+    <section class="title">
+      <h3 class="welcome">Welcome to SLIIT</h3>
+
+      <h5 class="hint">
+        Use your Company username and password to login
+      </h5>
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <label class="clr-sr-only">Username</label>
+        <input
+          type="text"
+          formControlName="username"
+          clrInput
+          placeholder="Username"
+        />
+      </clr-input-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          clrPassword
+          placeholder="Password"
+        />
+      </clr-password-container>
+      <clr-checkbox-wrapper>
+        <label>Remember me</label>
+        <input type="checkbox" name="rememberMe" clrCheckbox />
+      </clr-checkbox-wrapper>
+      <!-- <div class="error active" *ngIf="!loginForm.valid">
+        Invalid user name or password
+      </div> -->
+      <button type="submit" class="btn btn-primary" (click)="login()">
+        Login
+      </button>
+      <a routerLink="/auth/signup" class="signup">Sign up new user</a>
+    </div>
+  </form>
+</div>

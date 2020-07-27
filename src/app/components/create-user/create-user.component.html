@@ -1,0 +1,96 @@
+<div class="content-container">
+  <div class="content-area">
+    <div class="alert alert-success" role="alert" *ngIf="success">
+      <div class="alert-items">
+        <div class="alert-item static">
+          <div class="alert-icon-wrapper">
+            <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+          </div>
+          <span class="alert-text">
+            Successfully added new user!
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+      <div class="alert-items">
+        <div class="alert-item static">
+          <div class="alert-icon-wrapper">
+            <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+          </div>
+          <span class="alert-text">
+            Something went wrong!
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="clr-row">
+      <div class="clr-col-12">
+        <div class="card">
+          <div class="card-header">
+            Create new user
+          </div>
+          <div class="card-block">
+            <div class="card-text">
+              <form
+                clrForm
+                [formGroup]="userForm"
+                autocomplete="off"
+                (ngSubmit)="addUser(userForm.value)"
+              >
+                <clr-input-container>
+                  <label class="clr-col-4">Emp Number</label>
+                  <input
+                    class="clr-col-8"
+                    clrInput
+                    formControlName="userId"
+                    placeholder="eg: empxxx"
+                  />
+                  <clr-control-error>Should not be empty!</clr-control-error>
+                </clr-input-container>
+                <clr-input-container>
+                  <label class="clr-col-4">Name</label>
+                  <input
+                    class="clr-col-8"
+                    clrInput
+                    formControlName="name"
+                    appTextonly
+                    appCapitalize
+                    placeholder="eg: Sunil Perera"
+                  />
+                  <clr-control-error>Should not be empty!</clr-control-error>
+                </clr-input-container>
+                <clr-select-container>
+                  <label class="clr-col-4">Department</label>
+
+                  <select
+                    clrSelect
+                    formControlName="department"
+                    class="clr-col-8"
+                  >
+                    <option
+                      *ngFor="let dep of departments"
+                      value="{{ dep.depName }}"
+                      >{{ dep.depName }}</option
+                    >
+                  </select>
+
+                  <clr-control-error>Should not be empty!</clr-control-error>
+                </clr-select-container>
+
+                <div class="card-footer"></div>
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  [disabled]="!userForm.valid"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
