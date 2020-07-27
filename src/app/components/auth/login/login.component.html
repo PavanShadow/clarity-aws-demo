@@ -1,5 +1,5 @@
 <div class="login-wrapper">
-  <form class="login" [formGroup]="loginForm" autocomplete="off" clrForm>
+  <form class="login" [formGroup]="loginForm" autocomplete="off" clrForm (ngSubmit)="login(loginForm.value)">
     <section class="title">
       <h3 class="welcome">Welcome to SLIIT</h3>
 
@@ -33,7 +33,7 @@
       <!-- <div class="error active" *ngIf="!loginForm.valid">
         Invalid user name or password
       </div> -->
-      <button type="submit" class="btn btn-primary" (click)="login()">
+      <button type="submit" class="btn btn-primary" >
         Login
       </button>
       <a routerLink="/auth/signup" class="signup">Sign up new user</a>

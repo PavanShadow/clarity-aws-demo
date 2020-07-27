@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormsModule,
-} from '@angular/forms';
+import { Auth } from 'aws-amplify';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +9,7 @@ import {
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  constructor(public router: Router) {}
 
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -21,5 +18,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  login() {}
+  async login(formValue) {
+    const { username, password } = formValue;
+    try {
+      const user = await Auth.signIn(username, password).then((res) => { 
+        if (res) {
+          this.router.navigate(['/']);
+        }
+      });
+    } catch (error) {
+      console.log('error signing in', error);
+    }
+  }
 }

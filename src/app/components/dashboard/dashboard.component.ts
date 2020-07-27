@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user.model';
 import { DepartmentService } from 'src/app/services/department.service';
 
+import { Auth } from 'aws-amplify';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,6 +14,7 @@ export class DashboardComponent implements OnInit {
   userCount: number;
   editUser: User;
   departments: any;
+  
 
   constructor(
     public userService: UserService,

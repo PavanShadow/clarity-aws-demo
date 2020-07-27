@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Auth } from 'aws-amplify';
 import { AuthUser } from 'src/app/models/auth.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ import { AuthUser } from 'src/app/models/auth.model';
 })
 export class SignupComponent implements OnInit {
   authUser: AuthUser;
-  constructor() {}
+  constructor(public router: Router) {}
 
   signUpForm = new FormGroup({
     fullname: new FormControl('', Validators.required),
@@ -25,18 +26,18 @@ export class SignupComponent implements OnInit {
   async signUp(formValue: AuthUser) {
     this.authUser = formValue;
     const { username, password, fullname, email, role } = this.authUser;
-
     try {
       const user = await Auth.signUp({
         username,
         password,
         attributes: {
           email,
-          fullname,
-          role,
+          'custom:fullname': fullname,
+          'custom:role': role,
         },
+      }).then((res) => {
+        if (res) this.router.navigate(['/auth/login']);
       });
-      console.log({ user });
     } catch (error) {
       console.log('error signing up:', error);
     }
