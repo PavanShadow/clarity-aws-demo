@@ -16,13 +16,13 @@ export class UserService {
   }
 
   public async uploadUser(user: User): Promise<any> {
-    return this.http.post<any>(environment.baseUrl + 'user', user).toPromise();
+    return this.http.post<any>(environment.baseUrl + 'users', user).toPromise();
   }
 
   public async updateUser(user: User): Promise<any> {
     // console.log(user);
     return this.http
-      .put<any>(environment.baseUrl + `user/${user.userId}`, user)
+      .put<any>(environment.baseUrl + `users/${user.userId}`, user)
       .toPromise();
   }
 }
